@@ -117,6 +117,8 @@ export default {
 
     unlockContent() {
       this.isLocked = false;
+      this.isTouching = false;
+      this.isMouseDown = false;
       this.$refs.swipeComponent.style.top = "auto";
       this.$refs.swipeComponent.style.bottom = "0";
     },
