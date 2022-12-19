@@ -1,0 +1,11 @@
+@mixin border-default {
+    border: 2px solid $primary-color;
+}
+
+@mixin border-success {
+    border: 2px solid $success-color;
+}
+
+@mixin border-error {
+    border: 2px solid $error-color;
+}
