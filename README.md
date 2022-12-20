@@ -3,10 +3,11 @@
 ## Setup
 Dieses Projekt habe ich mit Vue 3 + Vite aufgesetzt. Grund dafür ist die default Einstellung beim initialen Aufsetzen von Vue 3. Zusätzlich bietet Vite einen zügigen Development Prozess an, der durchaus schneller sein kann als bei bspw. Webpack. Zudem könnte Vitest hinzugefügt werden.
 Verzichtet wurde jedoch auf besagte Tests und auch auf Typescript, da dieses Projekt nur eine sehr begrenzte Größe hat. In den Components wurde die Options API verwenden, da dies eine klare Sturktur bietet und Skalierung (und Wiederverwendbarkeit), bei dieser Größe eine untergeordnete Rolle spielte. Zudem ist meine Erfahrung mit der Options API deutlich größer. 
+Zur Umsetzung von Stylings wurde SASS verwendet. Dies hat mich in vielen Projekten begleitet. Dies hatte zur Folge, das ich es auch hier eingesetzt habe.
 
 ## UX/UI
 Angeleht ist das Design und die Benutzererfahrung an einen Lockscreen vom Smartphone. Der Header stellt dabei den Lockbutton dar, den es zu swipen gilt. Dieser ändert sich dann in eine Menüleiste.
-Dies ist ein von jedem Menschen gelerntes Verhalten, sodass es intuitiv bedienbar ist.
+Dies ist ein von jedem Menschen gelerntes Verhalten, sodass es intuitiv bedienbar ist. 
 
 ## Vue 3 Project Setup README
 
