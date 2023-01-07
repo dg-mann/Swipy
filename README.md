@@ -6,9 +6,15 @@ Verzichtet wurde jedoch auf besagte Tests und auch auf Typescript, da dieses Pro
 Zur Umsetzung von Stylings wurde SASS verwendet. Dies hat mich in vielen Projekten begleitet. Aus diesem Grund habe ich es auch hier eingesetzt.
 
 ## UX/UI
-Angeleht ist das Design und die Benutzererfahrung an einen Lockscreen vom Smartphone. Der Header stellt dabei den Lockbutton dar, den es zu swipen gilt. Dieser ändert sich dann in eine Menüleiste.
+Angelehnt ist das Design und die Benutzererfahrung an einen Lockscreen vom Smartphone. Der Header stellt dabei den Lockbutton dar, den es zu swipen gilt. Dieser ändert sich dann in eine Menüleiste.
 Das Verhalten ist von vielen Menschen gelernt, sodass es intuitiv bedienbar ist. 
 
+
+## MÖGLICHE OPTIMIERUNGEN 
+- Ergänzung von Typescript
+- Testing
+- Drag Event globaler platzieren: Der Start auf der Drag Komponente ist korrekt. Man sollte nicht irgendwo anfangen können zu draggen. Dennoch sollte auch wenn die Maus sich zu schnell aus der Drag Komponente bewegt, das Entsperren möglich sein.
+  
 ## Vue 3 Project Setup README
 
 ### Recommended IDE Setup
