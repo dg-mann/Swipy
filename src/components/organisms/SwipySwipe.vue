@@ -33,6 +33,9 @@
 
 <script>
 import SwipyDirection from "@/components/molecules/SwipyDirection.vue";
+
+const MIN_DRAG_HEIGHT = 300;
+
 export default {
   name: "SwipySwipe",
 
@@ -45,7 +48,7 @@ export default {
       isLocked: true,
       isTouching: false,
       isMouseDown: false,
-      swipeComponentPosition: [0, 0, 0, 0],
+      swipeComponentPosition: [0, 0],
       startHeight: 0,
     };
   },
@@ -53,8 +56,8 @@ export default {
   watch: {
     swipeComponentPosition: {
       handler(newVal) {
-        let diff = this.startHeight - newVal[3];
-        if (this.isLocked && diff > 300) {
+        let diff = this.startHeight - newVal[1];
+        if (this.isLocked && diff > MIN_DRAG_HEIGHT) {
           this.unlockContent();
         }
       },
@@ -67,14 +70,12 @@ export default {
       if (this.isLocked) {
         if (e.type === "touchstart") {
           this.isTouching = true;
-          this.swipeComponentPosition[2] = e.touches[0].clientX;
-          this.swipeComponentPosition[3] = e.touches[0].clientY;
-          this.startHeight = this.swipeComponentPosition[3];
+          this.swipeComponentPosition[1] = e.touches[0].clientY;
+          this.startHeight = this.swipeComponentPosition[1];
         } else if (e.type === "mousedown") {
           this.isMouseDown = true;
-          this.swipeComponentPosition[2] = e.clientX;
-          this.swipeComponentPosition[3] = e.clientY;
-          this.startHeight = this.swipeComponentPosition[3];
+          this.swipeComponentPosition[1] = e.clientY;
+          this.startHeight = this.swipeComponentPosition[1];
         }
       }
     },
@@ -87,8 +88,8 @@ export default {
           this.isMouseDown = false;
         }
 
-        let diff = this.startHeight - this.swipeComponentPosition[3];
-        if (diff < 300) {
+        let diff = this.startHeight - this.swipeComponentPosition[1];
+        if (diff < MIN_DRAG_HEIGHT) {
           this.lockContent();
         }
       }
@@ -97,20 +98,16 @@ export default {
     drag(e) {
       if (this.isLocked && (this.isTouching || this.isMouseDown)) {
         this.swipeComponentPosition[0] =
-          this.swipeComponentPosition[2] -
-          (this.isTouching ? e.touches[0].clientX : e.clientX);
-        this.swipeComponentPosition[1] =
-          this.swipeComponentPosition[3] -
+          this.swipeComponentPosition[1] -
           (this.isTouching ? e.touches[0].clientY : e.clientY);
-        this.swipeComponentPosition[2] = this.isTouching
-          ? e.touches[0].clientX
-          : e.clientX;
-        this.swipeComponentPosition[3] = this.isTouching
+
+        this.swipeComponentPosition[1] = this.isTouching
           ? e.touches[0].clientY
           : e.clientY;
+
         this.$refs.swipeComponent.style.top =
           this.$refs.swipeComponent.offsetTop -
-          this.swipeComponentPosition[1] +
+          this.swipeComponentPosition[0] +
           "px";
       }
     },
